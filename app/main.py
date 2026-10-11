@@ -8,6 +8,7 @@ Run:  uvicorn app.main:app --port 8000
 Env:  MONGO_URI, MONGO_DB (local .env supported)
 """
 import calendar
+import json
 import os
 import re
 from contextlib import asynccontextmanager
@@ -1454,7 +1455,7 @@ def explain_endpoint(
             "verbosity": "executionStats",
         }
         res = db.command(command)
-        clean_res = json_util.loads(json_util.dumps(res))
+        clean_res = json.loads(json_util.dumps(res))
         return {
             "endpoint": endpoint.value,
             "collection": "attendance_logs",
@@ -1496,7 +1497,7 @@ def explain_endpoint(
             "verbosity": "executionStats",
         }
         res = db.command(command)
-        clean_res = json_util.loads(json_util.dumps(res))
+        clean_res = json.loads(json_util.dumps(res))
         return {
             "endpoint": endpoint.value,
             "collection": "attendance_logs",
@@ -1517,7 +1518,7 @@ def explain_endpoint(
             "verbosity": "executionStats",
         }
         res = db.command(command)
-        clean_res = json_util.loads(json_util.dumps(res))
+        clean_res = json.loads(json_util.dumps(res))
         return {
             "endpoint": endpoint.value,
             "collection": "employees",
@@ -1538,7 +1539,7 @@ def explain_endpoint(
             "verbosity": "executionStats",
         }
         res = db.command(command)
-        clean_res = json_util.loads(json_util.dumps(res))
+        clean_res = json.loads(json_util.dumps(res))
         return {
             "endpoint": endpoint.value,
             "collection": "attendance_logs",
@@ -1561,7 +1562,7 @@ def explain_endpoint(
             "verbosity": "executionStats",
         }
         res = db.command(command)
-        clean_res = json_util.loads(json_util.dumps(res))
+        clean_res = json.loads(json_util.dumps(res))
         return {
             "endpoint": endpoint.value,
             "collection": "employees",
